@@ -8,3 +8,8 @@ html, body {
       overflow: hidden; /*  Disable scrollbars */
       display: block;  /* No floating content on sides */
 }
+
+img {
+	max-width: 20px;  
+	height: auto;
+}
