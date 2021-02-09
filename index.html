@@ -3,11 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>Resize HTML5 canvas dynamically | www.htmlcheats.com</title>
+    <!--Estilo principal-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--Estilo del reproductor-->
     <link rel="stylesheet" type="text/css" href="css/canvas.css">
+    <!--Estilo de los iconos-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">  
 </head>
 
 <body>
+	<!--Video
+    <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" controls hidden></video>
+	-->
+    <!--Reproductor-->
     <canvas id='c' style=''>
     </canvas>
 
@@ -21,8 +29,8 @@
 
        // Start listening to resize events and draw canvas.
        initialize();
-
-       function initialize() {
+ 
+      function initialize() {
            // Register an event listener to call the resizeCanvas() function 
            // each time the window is resized.
            window.addEventListener('resize', resizeCanvas, false);
@@ -47,7 +55,6 @@
             redraw();
         }
     })();
-
-    </script>
+    </script>    
 </body> 
 </html>
