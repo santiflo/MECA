@@ -1,0 +1,5 @@
+py mangage.py runserver -> Ejecuta el servidor
+py mangage.py shell 	-> Ejecuta el shell del servidor
+	app						-> Info del servidor
+	app.config				-> Configuración del servidor
+
