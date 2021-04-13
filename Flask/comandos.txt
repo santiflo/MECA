@@ -1,5 +1,14 @@
-py mangage.py runserver -> Ejecuta el servidor
-py mangage.py shell 	-> Ejecuta el shell del servidor
-	app						-> Info del servidor
-	app.config				-> Configuración del servidor
+MECA\Scripts\activate			-> Ejecuta el entorno creado
 
+Instalar dependencias de python:
+	pip install -t requisitos.txt
+
+Comandos basicos para el manejo del servidor:
+	py mangage.py runserver 	-> Ejecuta el servidor
+	py mangage.py shell 		-> Ejecuta el shell del servidor
+		app						-> Info del servidor
+		app.config				-> Configuración del servidor
+	py mangage.py db init		-> Crea los fichero de migraciones y su configuracíon
+	py mangage.py db migrate	-> Genera una migracion con el estado actual del modelo
+	py mangage.py db upgrade	-> Actualiza la base de datos con la migracion creada
+	py mangage.py db downgrade 	-> Devuelve la base de datos a un estado anterior
