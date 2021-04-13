@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import relationship
 from app.app import db
-from app.Models import Documentaries
+from app.Models import Model_Documentaries
 
 
 class Users(db.Model):

@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import relationship
 from app.app import db
-from app.Models import Documentaries, Type
+from app.Models import Model_Documentaries, Model_Type
 
 class Multimedia(db.Model):
 	#Atributos

@@ -3,7 +3,7 @@ from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import Integer, String, Text, DateTime
 from sqlalchemy.orm import relationship
 from app.app import db
-from app.Models import Users, Multimedia
+from app.Models import Model_Users, Model_Multimedia
 
 
 class Documentaries(db.Model):
