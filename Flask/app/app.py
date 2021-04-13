@@ -10,10 +10,10 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 #Models
-from app.Models import Users
-from app.Models import Documentaries
-from app.Models import Multimedia
-from app.Models import Type
+from app.Models import Model_Users
+from app.Models import Model_Documentaries
+from app.Models import Model_Multimedia
+from app.Models import Model_Type
 
 #Controllers
 from app.Controllers import Controller_Users
