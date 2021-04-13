@@ -7,13 +7,16 @@ from app import config
 app = Flask(__name__)
 app.config.from_object(config)
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
-#Modelo
+#Models
 from app.Models import Users
 from app.Models import Documentaries
 from app.Models import Multimedia
 from app.Models import Type
 
+#Controllers
+from app.Controllers import Controller_Users
 
 """
 @app.route('/')
