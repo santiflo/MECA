@@ -1,6 +1,6 @@
 from app.app import app, db, ma
 from flask import request, jsonify
-from app.Models.Model_Users import Users#, Users_Schema
+from app.Models.Model_Users import Users, Schema_Users
 
 @app.route('/CreateUser',  methods = ["POST"])
 def create_User():

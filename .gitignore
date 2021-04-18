@@ -2,3 +2,6 @@ Flask/MECA
 Flask/app/__pycache__
 Flask/app/config.py
 Flask/migrations
+Flask/app/__pycache__
+Flask/app/Models/__pycache__
+Flask/app/Controllers/__pycache__
