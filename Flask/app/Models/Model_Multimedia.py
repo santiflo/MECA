@@ -11,7 +11,7 @@ class Model_Multimedia(db.Model):
 	name = Column(String, nullable= False, unique = True)
 	#Foraneos
 	documental_id = Column(Integer, ForeignKey('TBL_DOCUMENTARIES.id'), nullable = False, unique = True)
-	type_id = Column(Integer, ForeignKey('TBL_TYPE.id'), nullable = False)
+	type_id = Column(Integer, ForeignKey('TBL_TYPES.id'), nullable = False)
 	#Relaciones
 	#Triggers
 

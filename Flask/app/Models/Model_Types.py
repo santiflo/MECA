@@ -5,9 +5,9 @@ from app.app import db, ma
 from marshmallow import post_load
 from app.Models.Model_Multimedia import Model_Multimedia
 
-class Model_Type(db.Model):
+class Model_Types(db.Model):
 	#Atributos
-	__tablename__ = 'TBL_TYPE'
+	__tablename__ = 'TBL_TYPES'
 	id = Column(Integer, primary_key = True)
 	name = Column(String, nullable = False, unique = True)
 	description = Column(Text, nullable = False, unique = True)
@@ -19,10 +19,10 @@ class Model_Type(db.Model):
 	def __repr__(self):
 		return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
 
-class Schema_Type(ma.SQLAlchemyAutoSchema):
+class Schema_Types(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Model_Type
+        model = Model_Types
 
     @post_load
-    def make_Type(self, data, **kwargs):
-        return Model_Type(**data)
+    def make_Types(self, data, **kwargs):
+        return Model_Types(**data)

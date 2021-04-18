@@ -13,10 +13,13 @@ ma = Marshmallow(app)
 from app.Models import Model_Users
 from app.Models import Model_Documentaries
 from app.Models import Model_Multimedia
-from app.Models import Model_Type
+from app.Models import Model_Types
 
 #Controllers
 from app.Controllers import Controller_Users
+from app.Controllers import Controller_Types
+from app.Controllers import Controller_Documentaries
+#from app.Controllers import Controller_Multimedia
 
 """
 @app.route('/')
