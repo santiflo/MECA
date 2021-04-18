@@ -7,3 +7,4 @@ Flask/app/Controllers/__pycache__
 Flask/migrations
 Flask/dbase.db
 Flask/dbase.db
+*.db
