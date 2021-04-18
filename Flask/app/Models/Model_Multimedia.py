@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from app.app import db
 from app.Models import Model_Documentaries, Model_Type
 
-class Multimedia(db.Model):
+class Model_Multimedia(db.Model):
 	#Atributos
 	id = Column(Integer, primary_key = True)
 	name = Column(String, nullable= False, unique = True)
@@ -18,3 +18,12 @@ class Multimedia(db.Model):
 
 	def __repr__(self):
 		return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
+
+class Schema_Multimedia(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Model_Multimedia
+        include_fk = True
+
+    @post_load
+    def make_Multimedia(self, data, **kwargs):
+        return ClienteModel(**data)

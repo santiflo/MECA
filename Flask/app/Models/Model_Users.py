@@ -5,7 +5,7 @@ from app.app import db
 from app.Models import Model_Documentaries
 
 
-class Users(db.Model):
+class Model_Users(db.Model):
 	#Atributos
 	id = Column(Integer, primary_key = True)
 	name = Column(String(20), nullable = False)
@@ -21,3 +21,11 @@ class Users(db.Model):
 	
 	def __repr__(self):
 		return (u'<{self.__class__.__name__}: {self.id}>'.format(self = self))
+
+class Schema_Users(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Model_Users
+
+    @post_load
+    def make_Usuario(self, data, **kwargs):
+        return UsuarioModel(**data)

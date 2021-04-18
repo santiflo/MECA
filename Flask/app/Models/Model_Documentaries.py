@@ -6,7 +6,7 @@ from app.app import db
 from app.Models import Model_Users, Model_Multimedia
 
 
-class Documentaries(db.Model):
+class Model_Documentaries(db.Model):
 	#Atributos
 	id = Column(Integer, primary_key = True)
 	description = Column(Text, default = 'blank description')
@@ -21,3 +21,12 @@ class Documentaries(db.Model):
 
 	def __repr__(self):
 		return (u'<{self.__class__.__name__}: {self.id}>'.format(self = self))
+
+class Schema_Documentaries(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Model_Documentaries
+        include_fk = True
+
+    @post_load
+    def make_Documentaries(self, data, **kwargs):
+        return ClienteModel(**data)

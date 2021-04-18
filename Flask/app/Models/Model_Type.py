@@ -16,3 +16,11 @@ class Type(db.Model):
 
 	def __repr__(self):
 		return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
+
+class Schema_Type(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Model_Type
+
+    @post_load
+    def make_Type(self, data, **kwargs):
+        return ClienteModel(**data)
