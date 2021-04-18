@@ -1,19 +1,18 @@
 from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import relationship
-from app.app import db
-from app.Models import Model_Documentaries, Model_Type
+from app.app import db, ma
+from marshmallow import post_load
 
 class Model_Multimedia(db.Model):
 	#Atributos
+	__tablename__ = 'TBL_MULTIMEDIA'
 	id = Column(Integer, primary_key = True)
 	name = Column(String, nullable= False, unique = True)
 	#Foraneos
-	documentalId = Column(Integer, ForeignKey('documentaries.id'), nullable = False, unique = True)
-	TypeId = Column(Integer, ForeignKey('type.id'), nullable = False)
+	documentalId = Column(Integer, ForeignKey('TBL_DOCUMENTARIES.id'), nullable = False, unique = True)
+	TypeId = Column(Integer, ForeignKey('TBL_TYPE.id'), nullable = False)
 	#Relaciones
-	documentaries = relationship('Documentaries', backref = 'Multimedia')
-	Type = relationship('type', backref = 'Multimedia')
 	#Triggers
 
 	def __repr__(self):
@@ -26,4 +25,4 @@ class Schema_Multimedia(ma.SQLAlchemyAutoSchema):
 
     @post_load
     def make_Multimedia(self, data, **kwargs):
-        return ClienteModel(**data)
+        return Model_Multimedia(**data)

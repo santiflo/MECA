@@ -1,17 +1,19 @@
 from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import Integer, String, Text
 from sqlalchemy.orm import relationship
-from app.app import db
-from app.Models import Model_Multimedia
+from app.app import db, ma
+from marshmallow import post_load
+from app.Models.Model_Multimedia import Model_Multimedia
 
-class Type(db.Model):
+class Model_Type(db.Model):
 	#Atributos
+	__tablename__ = 'TBL_TYPE'
 	id = Column(Integer, primary_key = True)
 	name = Column(String, nullable = False, unique = True)
 	description = Column(Text, nullable = False, unique = True)
 	#Foraneos
 	#Relaciones
-	multimedia = relationship('Multimedia', backref = 'Type', lazy = 'dynamic')
+	multimedia = relationship('Model_Multimedia', backref = 'Type', lazy = 'dynamic')
 	#Triggers
 
 	def __repr__(self):
@@ -23,4 +25,4 @@ class Schema_Type(ma.SQLAlchemyAutoSchema):
 
     @post_load
     def make_Type(self, data, **kwargs):
-        return ClienteModel(**data)
+        return Model_Type(**data)

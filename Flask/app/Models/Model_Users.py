@@ -1,20 +1,22 @@
 from sqlalchemy import Boolean, Column
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import relationship
-from app.app import db
-from app.Models import Model_Documentaries
+from app.app import db, ma
+from marshmallow import post_load
+from app.Models.Model_Documentaries import Model_Documentaries
 
 
 class Model_Users(db.Model):
 	#Atributos
+	__tablename__ = 'TBL_USERS'
 	id = Column(Integer, primary_key = True)
 	name = Column(String(20), nullable = False)
 	email = Column(String(50), nullable = False, unique = True)
 	password = Column(String(20), nullable = False)
-	username	 = Column(String(20), nullable = False, unique = True)
+	username = Column(String(20), nullable = False, unique = True)
 	#Foraneos
 	#Relaciones
-	documental = db.relationship('Documentaries', backref ='Users', lazy ='dynamic')
+	documental = db.relationship('Model_Documentaries', backref ='Users', lazy ='dynamic')
 #	Trigger        
 #	__table_args__ = (
 #		db.CheckConstraint('length("password") >= 7', name='password_min_length')
@@ -28,4 +30,4 @@ class Schema_Users(ma.SQLAlchemyAutoSchema):
 
     @post_load
     def make_Usuario(self, data, **kwargs):
-        return UsuarioModel(**data)
+        return Model_Users(**data)
