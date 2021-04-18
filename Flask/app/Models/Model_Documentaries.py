@@ -15,7 +15,7 @@ class Model_Documentaries(db.Model):
 	creation_date = Column(DateTime, default = datetime.utcnow)
 	name = Column(String(100), nullable = False, default = 'blank name')
 	#Foraneos
-	userId = Column(Integer, ForeignKey('TBL_USERS.id'), nullable = False, unique = True)
+	user_id = Column(Integer, ForeignKey('TBL_USERS.id'), nullable = False, unique = True)
 	#Relaciones
 	Multiemedia = db.relationship('Model_Multimedia', backref = 'Documentaries', lazy = 'dynamic')
 	#Triggers
