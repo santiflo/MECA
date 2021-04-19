@@ -4,20 +4,21 @@ from app.Models.Model_Documentaries import Model_Documentaries, Schema_Documenta
 
 @app.route('/Documentaries/Create', methods = ["POST"])
 def create_Documentry():
-	req_data = Schema_Documentaries().load(request.get_json())
-	db.session.add(req_data)
+	documentary = Schema_Documentaries().load(request.get_json())
+	db.session.add(documentary)
+	db.session.commit()
 	return "OK", 201
 
 @app.route('/Documentaries', methods = ["GET"])
 def all_Documentaries():
 	Documentaries = Model_Documentaries.query.all()
-	json = Schema_Documentaries(many = True). dump(Documentaries)
+	json = Schema_Documentaries(many = True).dump(Documentaries)
 	return jsonify(json), 200
 
 @app.route('/Documentaries/Search/name/<documentary_name>', methods = ["GET"])
 def search_Documentaries_name(documentary_name):
 	Documentaries = Model_Documentaries.query.filter(Model_Documentaries.name.ilike('%'+documentary_name+'%')).all()
-	json = Schema_Documentaries(many = True).dump(Types)
+	json = Schema_Documentaries(many = True).dump(Documentaries)
 	return jsonify(json), 200
 
 @app.route('/Documentaries/Search/id/<documentary_id>', methods = ["GET"])
@@ -26,15 +27,15 @@ def search_Documentary_id(documentary_id):
 	json = Schema_Documentaries().dump(Documentary)
 	return jsonify(json), 200
 
-@app.route('/Documentaries/Update/', methods = ["PUT"])
+@app.route('/Documentaries/Update', methods = ["PUT"])
 def update_Documentary():
-	req_data = request.get_json()
-	id = req_data['id']
-	name = req_data['name']
-	description = req_data['description']
-	documentary = Model_Documentaries.get(id)
-	if documentary.name != '' : documentary.name = name
-	if documentary.description != '' : documentary.description = description
+	json = request.get_json()
+	id = json['id']
+	name = json['name']
+	description = json['description']
+	documentary = Model_Documentaries.query.get(id)
+	if name != '' : documentary.name = name
+	if description != '' : documentary.description = description
 	db.session.commit()
 	return "OK", 202 
 

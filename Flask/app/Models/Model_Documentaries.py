@@ -2,8 +2,8 @@ from datetime import datetime
 from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import Integer, String, Text, DateTime
 from sqlalchemy.orm import relationship
-from app.app import db, ma
 from marshmallow import post_load
+from app.app import db, ma
 from app.Models.Model_Multimedia import Model_Multimedia
 
 
@@ -16,6 +16,7 @@ class Model_Documentaries(db.Model):
 	name = Column(String(100), nullable = False, default = 'blank name')
 	#Foraneos
 	user_id = Column(Integer, ForeignKey('TBL_USERS.id'), nullable = False, unique = True)
+	category_id = Column(Integer, ForeignKey('TBL_CATEGORIES.id'))
 	#Relaciones
 	Multiemedia = db.relationship('Model_Multimedia', backref = 'Documentaries', lazy = 'dynamic')
 	#Triggers

@@ -1,8 +1,8 @@
 from sqlalchemy import Boolean, Column, ForeignKey
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import relationship
-from app.app import db, ma
 from marshmallow import post_load
+from app.app import db, ma
 
 class Model_Multimedia(db.Model):
 	#Atributos
