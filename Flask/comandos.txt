@@ -10,5 +10,6 @@ Comandos basicos para el manejo del servidor:
 		app.config				-> Configuración del servidor
 	py mangage.py db init		-> Crea los fichero de migraciones y su configuracíon
 	py mangage.py db migrate	-> Genera una migracion con el estado actual del modelo
+	py mangage.py db stamp head	-> Revisa los cambios del modelo actual
 	py mangage.py db upgrade	-> Actualiza la base de datos con la migracion creada
 	py mangage.py db downgrade 	-> Devuelve la base de datos a un estado anterior
