@@ -4,8 +4,6 @@ from app.app import app, db
 
 manager = Manager(app)
 
-app.config['DEBUG'] = True # Ensure debugger will load.
-
 migrate = Migrate(app, db)
 
 manager.add_command('db', MigrateCommand)

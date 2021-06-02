@@ -1,11 +1,14 @@
+Conexión SSH
+ssh -i "MECA_BACKEND_DESSARROLLO.pem" ubuntu@ec2-54-90-177-88.compute-1.amazonaws.com
+
 Crear entorno virtual
-	virtualenv MECA
+	virtualenv env
 
 Activar entorno virtual
-	MECA\Scripts\activate
+	env\Scripts\activate
 
 Instalar dependencias de python:
-	pip install -t requisitos.txt
+	pip install -r requisitos.txt
 
 Comandos basicos para el manejo del servidor:
 	py mangage.py runserver 	-> Ejecuta el servidor

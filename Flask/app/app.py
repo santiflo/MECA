@@ -1,5 +1,5 @@
 from flask import Flask, make_response, abort, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MySQL
 from flask_marshmallow import Marshmallow
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from app import config
@@ -7,7 +7,7 @@ from app import config
 #Inicializadores
 app = Flask(__name__)
 app.config.from_object(config)
-db = SQLAlchemy(app)
+db = MySQL(app)
 ma = Marshmallow(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
