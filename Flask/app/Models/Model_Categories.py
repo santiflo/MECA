@@ -23,5 +23,5 @@ class Schema_Categories(ma.SQLAlchemyAutoSchema):
 		model = Model_Categories
 
 	@post_load
-	def make_Types(self, data, **kwargs):
+	def make_Categories(self, data, **kwargs):
 		return Model_Categories(**data)

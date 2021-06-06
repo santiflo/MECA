@@ -4,25 +4,25 @@ from sqlalchemy.orm import relationship
 from marshmallow import post_load
 from app.app import db, ma
 
-class Model_Multimedia(db.Model):
+class Model_File(db.Model):
 	#Atributos
-	__tablename__ = 'TBL_MULTIMEDIA'
+	__tablename__ = 'TBL_FILE'
 	id = Column(Integer, primary_key = True)
-	name = Column(String, nullable= False, unique = True)
+	name = Column(String(255), nullable= False, unique = True)
 	#Foraneos
 	documental_id = Column(Integer, ForeignKey('TBL_DOCUMENTARIES.id'), nullable = False, unique = True)
-	type_id = Column(Integer, ForeignKey('TBL_TYPES.id'), nullable = False)
+	file_type_id = Column(Integer, ForeignKey('TBL_FILE_TYPES.id'), nullable = False)
 	#Relaciones
 	#Triggers
 
 	def __repr__(self):
 		return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
 
-class Schema_Multimedia(ma.SQLAlchemyAutoSchema):
+class Schema_File(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Model_Multimedia
+        model = Model_File
         include_fk = True
 
     @post_load
-    def make_Multimedia(self, data, **kwargs):
-        return Model_Multimedia(**data)
+    def make_File(self, data, **kwargs):
+        return Model_File(**data)

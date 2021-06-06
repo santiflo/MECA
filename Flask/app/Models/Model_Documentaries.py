@@ -4,7 +4,7 @@ from sqlalchemy import Integer, String, Text, DateTime
 from sqlalchemy.orm import relationship
 from marshmallow import post_load
 from app.app import db, ma
-from app.Models.Model_Multimedia import Model_Multimedia
+from app.Models.Model_File import Model_File
 
 
 class Model_Documentaries(db.Model):
@@ -18,7 +18,7 @@ class Model_Documentaries(db.Model):
 	user_id = Column(Integer, ForeignKey('TBL_USERS.id'), nullable = False, unique = True)
 	category_id = Column(Integer, ForeignKey('TBL_CATEGORIES.id'))
 	#Relaciones
-	Multiemedia = db.relationship('Model_Multimedia', backref = 'Documentaries', lazy = 'dynamic')
+	file = db.relationship('Model_File', backref = 'Documentaries', lazy = 'dynamic')
 	#Triggers
 
 	def __repr__(self):

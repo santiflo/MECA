@@ -17,13 +17,14 @@ login_manager.login_view = "login"
 #Models
 from app.Models import Model_Users
 from app.Models import Model_Documentaries
-from app.Models import Model_Multimedia
-from app.Models import Model_Types
+from app.Models import Model_File
+from app.Models import Model_File_Types
 from app.Models import Model_Categories
 
 #Controllers
 from app.Controllers import Controller_errors
 from app.Controllers import Controller_Users
-from app.Controllers import Controller_Types
+#from app.Controllers import Controller_File
+from app.Controllers import Controller_File_Types
 from app.Controllers import Controller_Documentaries
 from app.Controllers import Controller_Categories
