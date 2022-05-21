@@ -1,10 +1,7 @@
 from app import app, db, ma
 from flask import request, jsonify
-<<<<<<< HEAD:Controllers/Controller_File_Types.py
 from app.Models.Model_File_Types import Model_File_Types, Schema_File_Types
-=======
 from Models.Model_Types import Model_Types, Schema_Types
->>>>>>> develop:Controllers/Controller_Types.py
 
 @app.route('/Types/Create',  methods = ["POST"])
 def create_Type():
