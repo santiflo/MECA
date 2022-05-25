@@ -18,12 +18,11 @@ class Model_Users(db.Model):
 	last_name_2 = Column(String(50), nullable = True)
 	email = Column(String(100), nullable = False, unique = True)
 	password_hash = Column(String(128), nullable = False)
-	username = Column(String(50), nullable = False, unique = True)
 	admin = Column(Integer, nullable = False, default = 0) # 0 user, 1 = admin
 	born_date = Column(DateTime, nullable = True)
 	describe = Column(Text, nullable = True)
 	verify_email = Column(Boolean, nullable = False, default = False)
-	picture = Column(Text, nullable = True)
+	picture = Column(Text, nullable = True, default = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Stick_Figure.svg/170px-Stick_Figure.svg.png?20070219055013')
 	#Foraneos
 	#Relaciones
 	virtual_expositions = db.relationship('Model_Virtual_Expositions', backref ='Users', lazy ='dynamic')

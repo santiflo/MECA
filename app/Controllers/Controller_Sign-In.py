@@ -12,7 +12,6 @@ def Sign_In_User():
 		json['last_name_2'], '\n',
 		json['email'], '\n',
 		json['password_hash'], '\n',
-		json['username'], '\n',
 		json['admin'], '\n',
 		json['born_date'], '\n',
 		json['describe'], '\n',

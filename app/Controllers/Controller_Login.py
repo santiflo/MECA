@@ -8,7 +8,9 @@ def login_User():
 	json = request.get_json(force=True)
 	print(json['email'],json['password_hash'])
 	User = Model_Users.query.filter_by(email = json['email']).first()
-	if User.password_hash == json['password_hash']:
+	if User is None: 
+		return "Bad user or password", 204
+	elif User.password_hash == json['password_hash']:
 		response = jsonify(
 			id = User.id,
 			admin = User.admin
