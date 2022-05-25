@@ -15,7 +15,7 @@ def Sign_In_User():
 		json['username'], '\n',
 		json['admin'], '\n',
 		json['born_date'], '\n',
-		json['describe'] '\n',
+		json['describe']
 	)
 	User = Schema_Users().load(request.get_json())
 	db.session.add(User)
