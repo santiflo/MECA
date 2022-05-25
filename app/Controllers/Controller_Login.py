@@ -13,6 +13,7 @@ def login_User():
 			id = User.id,
 			admin = User.admin
 			)
+		response.headers.add('Access-Control-Allow-Origin', '*')
 		return response, 202
 	else: return "Bad user or password", 204
 	#return "Bad user or password", 204
