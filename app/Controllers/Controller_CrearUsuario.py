@@ -5,7 +5,7 @@ from app.Models.Model_Users import Model_Users, Schema_Users
 
 @app.route('/CrearUsuario', methods = ["POST"])
 def CrearUsuario():
-	json = request.get_json()
+	json = request.get_json(force=True)
 	print(
 		json['name'], '\n',
 		json['last_name_1'], '\n',
