@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config.from_object(config)
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 #Models
 from app.Models import Model_Users
