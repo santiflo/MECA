@@ -5,7 +5,7 @@ from app.Models.Model_Users import Model_Users, Schema_Users
 
 @app.route('/Login', methods = ["POST"])
 def login_User():
-	json = request.get_json()
+	json = request.get_json(force=True)
 	print(json['email'],json['password_hash'])
 	User = Model_Users.query.filter_by(email = json['email']).first()
 	if User.password_hash == json['password_hash'] and User.admin == json[admin]:
