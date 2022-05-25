@@ -23,6 +23,7 @@ class Model_Users(db.Model):
 	born_date = Column(DateTime, nullable = True)
 	describe = Column(Text, nullable = True)
 	verify_email = Column(Boolean, nullable = False, default = False)
+	picture = Column(Text, nullable = True)
 	#Foraneos
 	#Relaciones
 	virtual_expositions = db.relationship('Model_Virtual_Expositions', backref ='Users', lazy ='dynamic')
