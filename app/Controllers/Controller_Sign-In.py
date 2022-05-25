@@ -3,7 +3,7 @@ from pprint import pprint
 from app.app import app, db, ma
 from app.Models.Model_Users import Model_Users, Schema_Users
 
-@app.route('/Sign_in', methods = ["POST"])
+@app.route('/Sign-in', methods = ["POST"])
 def Sign_In_User():
 	json = request.get_json()
 	print(
