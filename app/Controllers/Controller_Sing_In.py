@@ -4,7 +4,7 @@ from app.app import app, db, ma
 from app.Models.Model_Users import Model_Users, Schema_Users
 
 @app.route('/Sign-in', methods = ["POST"])
-def Sign_In_User():
+def Sign_In():
 	json = request.get_json()
 	print(
 		json['name'], '\n',
