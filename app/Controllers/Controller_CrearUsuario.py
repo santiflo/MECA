@@ -12,7 +12,6 @@ def CrearUsuario():
 		json['last_name_2'], '\n',
 		json['email'], '\n',
 		json['password_hash'], '\n',
-		json['admin'], '\n',
 		json['born_date'], '\n',
 		json['describe'], '\n',
 		json['picture']
