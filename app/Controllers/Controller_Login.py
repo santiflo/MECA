@@ -4,7 +4,7 @@ from app.app import app, db, ma
 from app.Models.Model_Users import Model_Users, Schema_Users
 
 @app.route('/Login', methods = ["POST"])
-def login_User():
+def Login():
 	json = request.get_json(force=True)
 	print(json['email'],json['password_hash'])
 	User = Model_Users.query.filter_by(email = json['email']).first()
