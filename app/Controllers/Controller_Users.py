@@ -73,7 +73,7 @@ def Menu(user_id):
 		return "El usuario no existe", 204
 	else:
 		response = jsonify(
-			nombre = User.name,
+			name = User.name,
 			picture = User.picture)
 		response.headers.add('Access-Control-Allow-Origin', '*')
 		return response, 200
