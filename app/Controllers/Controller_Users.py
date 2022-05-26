@@ -79,3 +79,16 @@ def Menu(user_id):
 			picture = User.picture)
 		response.headers.add('Access-Control-Allow-Origin', '*')
 		return response, 200
+
+@app.route('/AdminUsers', methods = ["GET"])
+def adminUsers():
+	Users = Model_Users.query.with_entities(
+		Model_Users.id, 
+		Model_Users.name, 
+		Model_Users.email, 
+		Model_Users.admin
+	).all()
+	json = Schema_Users(many = True).dump(Users)
+	response = jsonify(json)
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response, 200
