@@ -121,4 +121,4 @@ def UpdateAdmin():
 	elif User.admin == 1:
 		User.admin = 0
 	db.session.commit()
-	return "Se actualizo admin a "+str(Users.admin)+" de "+User.email, 200
+	return "Se actualizo admin a "+str(User.admin)+" de "+User.email, 200
