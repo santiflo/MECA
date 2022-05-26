@@ -112,6 +112,7 @@ def CreateRandomUser():
 @app.route('/Users/Uptdate/admin', methods = ["PUT"])
 def UpdateAdmin():
 	json = request.get_json(force=True)
+	print(json)
 	print(json["id"])
 	User = Model_Users.query.get(int(json["id"]))
 	if User is None:
