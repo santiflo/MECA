@@ -15,12 +15,13 @@ def all_Users():
 	Users = Model_Users.query.all()
 	json = Schema_Users(many = True).dump(Users)
 	return jsonify(json), 200
-
+"""
 @app.route('/User', methods = ["GET"])
 def search_User_name(user_name):
 	Users = Model_Users.query.filter(Model_Users.username.ilike('%'+user_name+'%')).all()
 	json = Schema_Users(many = True).dump(Users)
 	return jsonify(json), 200
+"""
 
 @app.route('/Users/Search/id/<user_id>', methods = ["GET"])
 def search_User_id(user_id):
@@ -99,6 +100,6 @@ def TotalUsers():
 		Model_Users.id,
 	).all()
 	print(len(Users))
-	response = jsonify(len(Users))
+	response = jsonify(total = len(Users))
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
