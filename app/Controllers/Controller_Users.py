@@ -113,6 +113,7 @@ def CreateRandomUser():
 def UpdateAdmin():
 	json = request.get_json(force=True)
 	id = int(json["id"])
+	print(id)
 	User = Model_Users.query.get(id)
 	if User is None:
 		return "El usuario no existe", 204
