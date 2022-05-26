@@ -93,7 +93,12 @@ def adminUsers():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
 
-@app.route('/Users/count', methods = ["GET"])
-def countUsers():
-	count = Model_Users.query.get(user_id).count()
-	return count, 200
+@app.route('/Users/total', methods = ["GET"])
+def TotalUsers():
+	Users = Model_Users.query.with_entities(
+		Model_Users.id,
+	).all()
+	print(len(Users))
+	response = jsonify(len(Users))
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	return response, 200
