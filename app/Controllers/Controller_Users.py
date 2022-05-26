@@ -92,3 +92,8 @@ def adminUsers():
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
+
+@app.route('/Users/count', methods = ["GET"])
+def countUsers():
+	count = Model_Users.query.get(user_id).count()
+	return count, 200
