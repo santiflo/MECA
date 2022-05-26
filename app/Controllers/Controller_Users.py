@@ -16,7 +16,7 @@ def all_Users():
 	json = Schema_Users(many = True).dump(Users)
 	return jsonify(json), 200
 
-@app.route('/Users/Buscar/username/<user_name>', methods = ["GET"])
+@app.route('/User', methods = ["GET"])
 def search_User_name(user_name):
 	Users = Model_Users.query.filter(Model_Users.username.ilike('%'+user_name+'%')).all()
 	json = Schema_Users(many = True).dump(Users)
@@ -65,3 +65,15 @@ def delte_User(user_id):
 	db.session.delete(User)
 	db.session.commit()
 	return "OK", 200
+
+@app.route('/MenuBar/<user_id>', methods = ["GET"])
+def search_User_id(user_id):
+	User = Model_Users.query.get(user_id)
+	if User is None:
+		return "El usuario no existe", 204
+	else:
+		response = jsonify(
+			nombre = User.name,
+			picture = User.picture)
+		response.headers.add('Access-Control-Allow-Origin', '*')
+		return response, 200
