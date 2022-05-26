@@ -67,7 +67,7 @@ def delte_User(user_id):
 	return "OK", 200
 
 @app.route('/MenuBar/<user_id>', methods = ["GET"])
-def search_User_id(user_id):
+def MenuBar(user_id):
 	User = Model_Users.query.get(user_id)
 	if User is None:
 		return "El usuario no existe", 204
