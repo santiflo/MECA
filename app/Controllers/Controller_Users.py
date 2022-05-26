@@ -114,7 +114,7 @@ def UpdateAdmin():
 	json = request.get_json(force=True)
 	id = json["id"]
 	User = Model_Users.query.get(id)
-	if Users is None:
+	if User is None:
 		return "El usuario no existe", 204
 	elif User.admin == 0:
 		User.admin = 1
