@@ -103,3 +103,22 @@ def TotalUsers():
 	response = jsonify(total = len(Users))
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
+"""
+@app.route('/CreateRandomUser' methods = ["GET"])
+def CreateRandomUser():
+	name = 
+"""
+
+@app.route('/Users/Uptdate/admin', methods = ["PUT"])
+def UpdateAdmin():
+	json = request.get_json(force=True)
+	id = json["id"]
+	User = Model_Users.query.get(user_id)
+	if Users is None:
+		return "El usuario no existe", 204
+	elif User.admin == 0:
+		User.admin = 1
+	elif User.admin == 1:
+		User.admin = 0
+	db.session.commit()
+	return "Se actualizo admin a "+str(Users.admin)+" de "+User.email, 200
