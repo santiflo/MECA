@@ -66,8 +66,8 @@ def delte_User(user_id):
 	db.session.commit()
 	return "OK", 200
 
-@app.route('/MenuBar/<user_id>', methods = ["GET"])
-def MenuBar(user_id):
+@app.route('/Menu/<user_id>', methods = ["GET"])
+def Menu(user_id):
 	User = Model_Users.query.get(user_id)
 	if User is None:
 		return "El usuario no existe", 204
