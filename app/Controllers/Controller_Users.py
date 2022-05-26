@@ -38,6 +38,7 @@ def update_User():
 	email = json['email']
 	born_date = json['born_date']
 	describe = json['describe']
+	picture = json['picture']
 	User = Model_Users.query.get(id)
 	if name != '': User.name = name
 	if last_name_1 != '': User.last_name_1 = last_name_1
@@ -45,6 +46,7 @@ def update_User():
 	if email != '': User.email = email
 	if born_date != '': User.born_date = born_date
 	if describe != '': User.describe = describe
+	if picture != '': User.picture = picture
 	db.session.commit()
 	return "OK", 200
 
