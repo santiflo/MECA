@@ -30,7 +30,7 @@ def search_User_id(user_id):
 
 @app.route('/Users/Actualizar', methods = ["PUT"])
 def update_User():
-	json = request.get_json()
+	json = request.get_json(force=True)
 	id = json['id']
 	name = json['name']
 	last_name_1 = json['last_name_1']
