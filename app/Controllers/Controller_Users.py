@@ -112,7 +112,7 @@ def CreateRandomUser():
 @app.route('/Users/Uptdate/admin', methods = ["PUT"])
 def UpdateAdmin():
 	json = request.get_json(force=True)
-	id = json["id"]
+	id = int(json["id"])
 	User = Model_Users.query.get(id)
 	if User is None:
 		return "El usuario no existe", 204
