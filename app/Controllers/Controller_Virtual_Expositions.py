@@ -4,10 +4,12 @@ from app.Models.Model_Virtual_Expositions import Model_Virtual_Expositions, Sche
 
 @app.route('/VirtualExpositions/Create', methods = ["POST"])
 def create_Expositions():
-	Exposition = Schema_Virtual_Expositions().load(request.get_json(force=True))
+	json = request.get_json(force=True)
+	print(json)
+	Exposition = Schema_Virtual_Expositions().load(request.get_json())
 	db.session.add(Exposition)
 	db.session.commit()
-	return "OK", 201
+	return "Exposicion creada", 201
 
 @app.route('/VirtualExpositions', methods = ["GET"])
 def all_Expositions():
@@ -35,7 +37,7 @@ def search_Exposition_id(exposition_id):
 
 @app.route('/VirtualExpositions/Update', methods = ["PUT"])
 def update_Exposition():
-	json = request.get_json(force = True)
+	json = request.get_json(fo	)
 	id = json['id']
 	title = json['title']
 	description = json['description']
