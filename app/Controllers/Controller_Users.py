@@ -15,6 +15,7 @@ def all_Users():
 	Users = Model_Users.query.all()
 	json = Schema_Users(many = True).dump(Users)
 	return jsonify(json), 200
+
 """
 @app.route('/User', methods = ["GET"])
 def search_User_name(user_name):
@@ -103,12 +104,7 @@ def TotalUsers():
 	response = jsonify(total = len(Users))
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
-"""
-@app.route('/CreateRandomUser' methods = ["GET"])
-def CreateRandomUser():
-	name = 
-"""
-
+	
 @app.route('/Users/Uptdate/admin', methods = ["PUT"])
 def UpdateAdmin():
 	json = request.get_json(force=True)
