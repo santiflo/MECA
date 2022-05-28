@@ -26,7 +26,7 @@ from app.Controllers import Controller_Users
 from app.Controllers import Controller_Login
 from app.Controllers import Controller_Virtual_Expositions
 from app.Controllers import Controller_Types
-#from app.Controllers import Controller_errors
+from app.Controllers import Controller_Multimedia
 
 
 #from app.Controllers import Controller_Categories
