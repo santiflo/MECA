@@ -17,6 +17,10 @@ class Model_Virtual_Expositions(db.Model):
 	creation_date = Column(DateTime, default = datetime.utcnow)
 	number_views = Column(Integer, nullable = False, default = 0)
 	picture = Column(Text, nullable = True, default = 'https://image.shutterstock.com/image-vector/green-school-chalkboard-frame-vector-600w-1478673725.jpg')
+	audio = Column(Text, nullable = True, default = '') 
+	background = Column(Text, nullable = True, default = '')
+	bibliography = Column(Text, nullable = True, default = '')
+	structure = Column(String(1), nullable = False, default = 0)
 	#Foraneos
 	user_id = Column(Integer, ForeignKey('TBL_USERS.id'), nullable = False)
 	#Relaciones
