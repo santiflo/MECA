@@ -11,7 +11,7 @@ def create_Multimedia():
 	db.session.commit()
 	return "Creado", 201
 
-@app.route('/Multimedia/<user_id>/<virtual_exposition_id>/Text', methods = ["GET"])
+@app.route('/Multimedia/<virtual_exposition_id>/Text', methods = ["GET"])
 def getUserExpositionText(user_id, virtual_exposition_id):
 	type_id = 4
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
@@ -20,7 +20,7 @@ def getUserExpositionText(user_id, virtual_exposition_id):
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
 
-@app.route('/Multimedia/<user_id>/<virtual_exposition_id>/Subtitle', methods = ["GET"])
+@app.route('/Multimedia/<virtual_exposition_id>/Subtitle', methods = ["GET"])
 def getUserExpositionSubtitle(user_id, virtual_exposition_id):
 	type_id = 2
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
@@ -29,7 +29,7 @@ def getUserExpositionSubtitle(user_id, virtual_exposition_id):
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
 
-@app.route('/Multimedia/<user_id>/<virtual_exposition_id>/Video', methods = ["GET"])
+@app.route('/Multimedia/<virtual_exposition_id>/Video', methods = ["GET"])
 def getUserExpositionVideo(user_id, virtual_exposition_id):
 	type_id = 3
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
@@ -38,7 +38,7 @@ def getUserExpositionVideo(user_id, virtual_exposition_id):
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
 
-@app.route('/Multimedia/<user_id>/<exposition_id>/Images', methods = ["GET"])
+@app.route('/Multimedia/<exposition_id>/Images', methods = ["GET"])
 def getUserExpositionImage(user_id, virtual_exposition_id):
 	type_id = 5
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
