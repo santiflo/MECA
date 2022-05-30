@@ -47,7 +47,7 @@ def getUserExpositionVideo(virtual_exposition_id):
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
 
-@app.route('/Multimedia/<exposition_id>/Images', methods = ["GET"])
+@app.route('/Multimedia/<virtual_exposition_id>/Images', methods = ["GET"])
 def getUserExpositionImage(virtual_exposition_id):
 	type_id = 5
 	Multimedia = Model_Multimedia.query.filter(
