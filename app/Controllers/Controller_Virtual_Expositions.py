@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from app.app import app, db, ma
 from flask import request, jsonify
 from app.Models.Model_Virtual_Expositions import Model_Virtual_Expositions, Schema_Virtual_Expositions
