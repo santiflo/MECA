@@ -38,6 +38,7 @@ def search_Exposition_id(exposition_id):
 @app.route('/VirtualExpositions/Update', methods = ["PUT"])
 def update_Exposition():
 	json = request.get_json(force=True)
+	print(json)
 	id = json['id']
 	title = json['title']
 	description = json['description']
