@@ -12,7 +12,7 @@ def create_Multimedia():
 	return "Creado", 201
 
 @app.route('/Multimedia/<virtual_exposition_id>/Text', methods = ["GET"])
-def getUserExpositionText(user_id, virtual_exposition_id):
+def getUserExpositionText(virtual_exposition_id):
 	type_id = 4
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
@@ -21,7 +21,7 @@ def getUserExpositionText(user_id, virtual_exposition_id):
 	return response, 200
 
 @app.route('/Multimedia/<virtual_exposition_id>/Subtitle', methods = ["GET"])
-def getUserExpositionSubtitle(user_id, virtual_exposition_id):
+def getUserExpositionSubtitle(virtual_exposition_id):
 	type_id = 2
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
@@ -30,7 +30,7 @@ def getUserExpositionSubtitle(user_id, virtual_exposition_id):
 	return response, 200
 
 @app.route('/Multimedia/<virtual_exposition_id>/Video', methods = ["GET"])
-def getUserExpositionVideo(user_id, virtual_exposition_id):
+def getUserExpositionVideo(virtual_exposition_id):
 	type_id = 3
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
@@ -39,7 +39,7 @@ def getUserExpositionVideo(user_id, virtual_exposition_id):
 	return response, 200
 
 @app.route('/Multimedia/<exposition_id>/Images', methods = ["GET"])
-def getUserExpositionImage(user_id, virtual_exposition_id):
+def getUserExpositionImage(virtual_exposition_id):
 	type_id = 5
 	Multimedia = Model_Multimedia.query.get(user_id, virtual_exposition_id, type_id)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
