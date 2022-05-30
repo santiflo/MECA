@@ -44,7 +44,7 @@ def update_Exposition():
 	description = json['description']
 	picture = json['picture']
 	background = json['background']
-	estructure = json['structure']
+	structure = json['structure']structure
 	bibliography = json['bibliography']
 	audio = json['audio']
 	Exposition = Model_Virtual_Expositions.query.get(id)
@@ -53,7 +53,7 @@ def update_Exposition():
 		if description != '' : Exposition.description = description
 		if picture != '' : Exposition.picture = picture
 		if background != '': Exposition.background = background
-		if estructure  != '': Exposition.estructure = estructure
+		if structure  != '': Exposition.structure = structure
 		if bibliography != '': Exposition.bibliography = bibliography
 		if audio != '': Exposition.audio = audio
 		db.session.commit()
