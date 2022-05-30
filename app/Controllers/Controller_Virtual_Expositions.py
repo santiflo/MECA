@@ -46,14 +46,16 @@ def update_Exposition():
 	estructure = json['structure']
 	bibliography = json['bibliography']
 	Exposition = Model_Virtual_Expositions.query.get(id)
-	if title != '' : Exposition.title = title
-	if description != '' : Exposition.description = description
-	if picture != '' : Exposition.picture = picture
-	if background != '': Exposition.background = background
-	if estructure  != '': Exposition.estructure = estructure
-	if bibliography != '': Exposition.bibliography = bibliography
-	db.session.commit()
-	return "OK", 202 
+	if Exposition.user_id == json['user_id']:
+		if title != '' : Exposition.title = title
+		if description != '' : Exposition.description = description
+		if picture != '' : Exposition.picture = picture
+		if background != '': Exposition.background = background
+		if estructure  != '': Exposition.estructure = estructure
+		if bibliography != '': Exposition.bibliography = bibliography
+		db.session.commit()
+		return "OK", 202 
+	else return "No es propietario de la exposicion", 204
 
 @app.route('/VirtualExpositions/Delete/<exposition_id>', methods = ["DELETE"])
 def delete_Exposition(exposition_id):
