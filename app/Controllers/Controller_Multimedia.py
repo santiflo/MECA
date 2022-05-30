@@ -14,7 +14,12 @@ def create_Multimedia():
 @app.route('/Multimedia/<virtual_exposition_id>/Text', methods = ["GET"])
 def getUserExpositionText(virtual_exposition_id):
 	type_id = 4
-	Multimedia = Model_Multimedia.query.get(virtual_exposition_id, type_id)
+	Multimedia = Model_Multimedia.query.filter(
+		and_(
+			Model_Multimedia.virtual_exposition_id.ilike(virtual_exposition_id), 
+			Model_Multimedia.type_id.ilike(type_id)
+			)
+		)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
@@ -23,7 +28,12 @@ def getUserExpositionText(virtual_exposition_id):
 @app.route('/Multimedia/<virtual_exposition_id>/Subtitle', methods = ["GET"])
 def getUserExpositionSubtitle(virtual_exposition_id):
 	type_id = 2
-	Multimedia = Model_Multimedia.query.get(virtual_exposition_id, type_id)
+	Multimedia = Model_Multimedia.query.filter(
+		and_(
+			Model_Multimedia.virtual_exposition_id.ilike(virtual_exposition_id), 
+			Model_Multimedia.type_id.ilike(type_id)
+			)
+		)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
@@ -32,7 +42,12 @@ def getUserExpositionSubtitle(virtual_exposition_id):
 @app.route('/Multimedia/<virtual_exposition_id>/Video', methods = ["GET"])
 def getUserExpositionVideo(virtual_exposition_id):
 	type_id = 3
-	Multimedia = Model_Multimedia.query.get(virtual_exposition_id, type_id)
+	Multimedia = Model_Multimedia.query.filter(
+		and_(
+			Model_Multimedia.virtual_exposition_id.ilike(virtual_exposition_id), 
+			Model_Multimedia.type_id.ilike(type_id)
+			)
+		)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
@@ -41,7 +56,12 @@ def getUserExpositionVideo(virtual_exposition_id):
 @app.route('/Multimedia/<exposition_id>/Images', methods = ["GET"])
 def getUserExpositionImage(virtual_exposition_id):
 	type_id = 5
-	Multimedia = Model_Multimedia.query.get(virtual_exposition_id, type_id)
+	Multimedia = Model_Multimedia.query.filter(
+		and_(
+			Model_Multimedia.virtual_exposition_id.ilike(virtual_exposition_id), 
+			Model_Multimedia.type_id.ilike(type_id)
+			)
+		)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
