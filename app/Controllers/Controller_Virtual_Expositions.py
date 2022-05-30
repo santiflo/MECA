@@ -45,6 +45,7 @@ def update_Exposition():
 	background = json['background']
 	estructure = json['structure']
 	bibliography = json['bibliography']
+	audio = json['audio']
 	Exposition = Model_Virtual_Expositions.query.get(id)
 	if Exposition.user_id == json['user_id']:
 		if title != '' : Exposition.title = title
@@ -53,6 +54,7 @@ def update_Exposition():
 		if background != '': Exposition.background = background
 		if estructure  != '': Exposition.estructure = estructure
 		if bibliography != '': Exposition.bibliography = bibliography
+		if audio != '': Exposition.audio = audio
 		db.session.commit()
 		return "OK", 202 
 	else: return "No es propietario de la exposicion", 204
