@@ -55,7 +55,7 @@ def update_Exposition():
 		if bibliography != '': Exposition.bibliography = bibliography
 		db.session.commit()
 		return "OK", 202 
-	else return "No es propietario de la exposicion", 204
+	else: return "No es propietario de la exposicion", 204
 
 @app.route('/VirtualExpositions/Delete/<exposition_id>', methods = ["DELETE"])
 def delete_Exposition(exposition_id):
