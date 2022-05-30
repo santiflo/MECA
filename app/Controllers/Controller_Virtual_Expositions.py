@@ -37,15 +37,21 @@ def search_Exposition_id(exposition_id):
 
 @app.route('/VirtualExpositions/Update', methods = ["PUT"])
 def update_Exposition():
-	json = request.get_json(fo	)
+	json = request.get_json(force=True)
 	id = json['id']
 	title = json['title']
 	description = json['description']
 	picture = json['picture']
+	background = json['background']
+	estructure = json['structure']
+	bibliography = json['bibliography']
 	Exposition = Model_Virtual_Expositions.query.get(id)
 	if title != '' : Exposition.title = title
 	if description != '' : Exposition.description = description
 	if picture != '' : Exposition.picture = picture
+	if background != '': Exposition.background = background
+	if estructure  != '': Exposition.estructure = estructure
+	if bibliography != '': Exposition.bibliography = bibliography
 	db.session.commit()
 	return "OK", 202 
 
