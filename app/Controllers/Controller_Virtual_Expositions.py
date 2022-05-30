@@ -44,7 +44,7 @@ def update_Exposition():
 	description = json['description']
 	picture = json['picture']
 	background = json['background']
-	structure = json['structure']structure
+	structure = json['structure']
 	bibliography = json['bibliography']
 	audio = json['audio']
 	Exposition = Model_Virtual_Expositions.query.get(id)
