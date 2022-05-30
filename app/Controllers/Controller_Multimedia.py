@@ -15,9 +15,9 @@ def create_Multimedia():
 def getUserExpositionText(virtual_exposition_id):
 	type_id = 4
 	Multimedia = Model_Multimedia.query.filter(
-		and_(
-			Model_Multimedia.virtual_exposition_id.ilike(virtual_exposition_id), 
-			Model_Multimedia.type_id.ilike(type_id)
+		(
+			Model_Multimedia.virtual_exposition_id == virtual_exposition_id, 
+			Model_Multimedia.type_id == type_id
 			)
 		)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
@@ -29,10 +29,8 @@ def getUserExpositionText(virtual_exposition_id):
 def getUserExpositionSubtitle(virtual_exposition_id):
 	type_id = 2
 	Multimedia = Model_Multimedia.query.filter(
-		and_(
-			Model_Multimedia.virtual_exposition_id.ilike(virtual_exposition_id), 
-			Model_Multimedia.type_id.ilike(type_id)
-			)
+		Model_Multimedia.virtual_exposition_id == virtual_exposition_id, 
+		Model_Multimedia.type_id == type_id
 		)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
 	response = jsonify(json)
