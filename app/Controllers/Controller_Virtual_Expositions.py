@@ -8,7 +8,7 @@ from app.Models.Model_Virtual_Expositions import Model_Virtual_Expositions, Sche
 def create_Expositions():
 	json = request.get_json(force=True)
 	print(json)
-	Exposition = Schema_Virtual_Expositions().load(request.get_json())
+	Exposition = Schema_Virtual_Expositions().load(json)
 	db.session.add(Exposition)
 	db.session.commit()
 	return "Exposicion creada", 201
@@ -71,7 +71,7 @@ def delete_Exposition(exposition_id):
 
 @app.route('/VirtualExpositions/Menu', methods = ["GET"])
 def VirtualExpositionsMenu():
-	Expositions = Model_Virtual_Expositions.query.with_entities(
+	Expositions = Model_Virtual_Expositions.query.get().with_entities(
 		Model_Virtual_Expositions.id,
 		Model_Virtual_Expositions.title,
 		Model_Virtual_Expositions.picture
@@ -80,3 +80,11 @@ def VirtualExpositionsMenu():
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
+
+@app.route('/VirtualExpositions/<exposition_id>/IsOwner/<user_id>', methods = ["GET"])
+def IsOwner(user_id, exposition_id):
+	Exposition = Model_Virtual_Expositions.query.get(exposition_id)
+	if user_id == Exposition.user_id:
+		return "OK",200
+	else:
+		return "No es propietario de la exposicion", 204

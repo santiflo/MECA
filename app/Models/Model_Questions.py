@@ -13,10 +13,9 @@ class Model_Questions(db.Model):
 	name = Column(String(100), nullable = False, unique = True)
 	description = Column(Text, nullable = False)
 	date = Column(DateTime, nullable = False, default = datetime.utcnow)
+	answers Column(Text, nullable = True)
 	#Foraneos
-	user_id = Column(Integer, ForeignKey('TBL_USERS.id'), nullable = False)
 	#Relaciones
-	answers = relationship('Model_Answers', backref = 'Questions', lazy = 'dynamic')
 	#Triggers
 
 	def __repr__(self):
