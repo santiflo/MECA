@@ -7,7 +7,6 @@ from app.Models.Model_Virtual_Expositions import Model_Virtual_Expositions
 from app.Models.Model_Multimedia import Model_Multimedia
 from app.Models.Model_Comments import Model_Comments
 from app.Models.Model_Questions import Model_Questions
-from app.Models.Model_Answers import Model_Answers
 
 class Model_Users(db.Model):
 	#Atributos
@@ -28,8 +27,6 @@ class Model_Users(db.Model):
 	virtual_expositions = db.relationship('Model_Virtual_Expositions', backref ='Users', lazy ='dynamic')
 	multimedia = db.relationship('Model_Multimedia', backref ='Users', lazy ='dynamic')
 	comments = db.relationship('Model_Comments', backref ='Users', lazy ='dynamic')
-	questions = db.relationship('Model_Questions', backref ='Users', lazy ='dynamic')
-	answers = db.relationship('Model_Answers', backref ='Users', lazy ='dynamic')
 	#Trigger        
 	#	__table_args__ = (db.CheckConstraint('length("password") >= 7', name='password_min_length')
 	

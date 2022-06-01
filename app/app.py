@@ -15,8 +15,8 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 #Models
 from app.Models import Model_Users
 from app.Models import Model_Virtual_Expositions
-from app.Models import Model_Multimedia
 from app.Models import Model_Types
+from app.Models import Model_Multimedia
 from app.Models import Model_Comments
 from app.Models import Model_Questions
 
