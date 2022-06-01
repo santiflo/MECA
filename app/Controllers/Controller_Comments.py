@@ -18,7 +18,7 @@ def all_Comments():
 	json = Schema_Users(many = True).dump(Comments)
 	return jsonify(json), 200
 
-@app.route('Comments/VirtualExposition/<virtual_exposition_id>', methods = ["GET"])
+@app.route('/Comments/VirtualExposition/<virtual_exposition_id>', methods = ["GET"])
 def Comments_by_virtual_exposition():
 	Comments = Model_Comments.query.filter(Model_Comments.virtual_exposition_id == virtual_exposition_id)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
@@ -26,7 +26,7 @@ def Comments_by_virtual_exposition():
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
 
-@app.route('Comments/Update', methods = ["PUT"])
+@app.route('/Comments/Update', methods = ["PUT"])
 def update_comment():
 	json = request.get_json(force=True)
 	id = json['id']
