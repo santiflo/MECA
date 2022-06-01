@@ -4,7 +4,6 @@ from sqlalchemy import Integer, String, Text, DateTime
 from sqlalchemy.orm import relationship
 from marshmallow import post_load
 from app.app import db, ma
-from app.Models.Model_Answers import Model_Answers
 
 class Model_Questions(db.Model):
 	#Atributos
