@@ -11,9 +11,10 @@ def create_Multimedia():
 	db.session.commit()
 	return "Creado", 201
 
-@app.route('/Multimedia/<virtual_exposition_id>/Text', methods = ["GET"])
+@app.route('/Multimedia/<virtual_exposition_id>/<type_name>', methods = ["GET"])
 def getUserExpositionText(virtual_exposition_id):
-	type_id = 4
+	Type = Model_Types.query.filter(Model_Types.name.ilike('%'+type_name+'%')).first()
+	type_id = Type.id
 	Multimedia = Model_Multimedia.query.filter(
 		Model_Multimedia.virtual_exposition_id == virtual_exposition_id, 
 		Model_Multimedia.type_id == type_id
@@ -22,8 +23,8 @@ def getUserExpositionText(virtual_exposition_id):
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
-
-@app.route('/Multimedia/<virtual_exposition_id>/Subtitle', methods = ["GET"])
+"""
+@app.route('/Multimedia/<virtual_exposition_id>/<type>', methods = ["GET"])
 def getUserExpositionSubtitle(virtual_exposition_id):
 	type_id = 2
 	Multimedia = Model_Multimedia.query.filter(
@@ -58,7 +59,7 @@ def getUserExpositionImage(virtual_exposition_id):
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
-
+"""
 @app.route('/Multimedia/Delete/<multimedia_id>', methods = ["DELETE"])
 def Delete_Multimedia(multimedia_id):
 	Multimedia = Model_Multimedia.query.get(multimedia_id)

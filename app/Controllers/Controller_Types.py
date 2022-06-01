@@ -5,6 +5,7 @@ from app.Models.Model_Types import Model_Types, Schema_Types
 @app.route('/Types/Create',  methods = ["POST"])
 def create_Type():
 	json = request.get_json(force=True)
+	json['name'] = json['name'].capitalize()
 	Type = Schema_Types().load(json)
 	db.session.add(Type)
 	db.session.commit()

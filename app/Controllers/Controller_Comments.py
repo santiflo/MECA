@@ -35,3 +35,10 @@ def update_comment():
 	if comment != '' : Comment.comment = comment
 	db.session.commit()
 	return "OK", 200
+
+@app.route('/Comments/Delete/<Comment_id>',  methods = ["DELETE"])
+def delete_Type(Comment_id):
+	Comment = Model_Comments.query.get(Comment_id)
+	db.session.delete(Comment)
+	db.session.commit()
+	return "OK", 200
