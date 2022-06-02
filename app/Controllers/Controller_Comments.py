@@ -37,7 +37,7 @@ def update_comment():
 	return "OK", 200
 
 @app.route('/Comments/Delete/<Comment_id>',  methods = ["DELETE"])
-def delete_Type(Comment_id):
+def delete_Comment(Comment_id):
 	Comment = Model_Comments.query.get(Comment_id)
 	db.session.delete(Comment)
 	db.session.commit()
