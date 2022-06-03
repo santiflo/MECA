@@ -82,15 +82,14 @@ def VirtualExpositionsMenu():
 	return response, 200
 
 @app.route('/VirtualExpositions/<exposition_id>/IsOwner/<user_id>', methods = ["GET"])
-def IsOwner(int(exposition_id), int(user_id)):
+def IsOwner(exposition_id, user_id):
 	print(exposition_id, user_id)
-	Exposition = Model_Virtual_Expositions.query.get(exposition_id)
+	Exposition = Model_Virtual_Expositions.query.get(int(exposition_id))
 	print(Exposition.user_id)
 	if Exposition is not None: 
-		if user_id == Exposition.user_id:
+		if int(user_id) == Exposition.user_id:
 			return "OK",200
 		else:
-			print(' ')
 			return "No es propietario de la exposicion", 204
 	else: 
 		return "El usuario no existe", 204
