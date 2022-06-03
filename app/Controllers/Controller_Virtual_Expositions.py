@@ -82,10 +82,10 @@ def VirtualExpositionsMenu():
 	return response, 200
 
 @app.route('/VirtualExpositions/<exposition_id>/IsOwner/<user_id>', methods = ["GET"])
-def IsOwner(user_id, exposition_id):
+def IsOwner(exposition_id, user_id):
 	print(exposition_id, user_id)
 	Exposition = Model_Virtual_Expositions.query.get(exposition_id)
-	print(Exposition)
+	print(Exposition['user_id'])
 	if user_id == Exposition.user_id:
 		return "OK",200
 	else:
