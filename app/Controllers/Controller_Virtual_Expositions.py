@@ -23,7 +23,7 @@ def all_Expositions():
 
 @app.route('/VirtualExpositions/Search/title/<exposition_title>', methods = ["GET"])
 def search_Exposition_name(exposition_title):
-	Exposition = Model_Virtual_Expositions.query.filter(Model_Virtual_Expositions.name.ilike('%'+exposition_title+'%')).all()
+	Exposition = Model_Virtual_Expositions.query.filter(Model_Virtual_Expositions.title.ilike('%'+exposition_title+'%')).all()
 	json = Schema_Virtual_Expositions(many = True).dump(Exposition)
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
