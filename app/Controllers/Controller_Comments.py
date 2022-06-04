@@ -10,7 +10,7 @@ def create_Comments():
 	Comment = Schema_Comments().load(json)
 	db.session.add(Comment)
 	db.session.commit()
-	return "Exposicion creada", 201
+	return "Comentario creado creada", 201
 
 @app.route('/Comments', methods = ["GET"])
 def all_Comments():
