@@ -7,7 +7,7 @@ from app.Models.Model_Comments import Model_Comments, Schema_Comments
 def create_Comments():
 	json = request.get_json(force=True)
 	print(json)
-	Comment = Schema_Virtual_Expositions().load(json)
+	Comment = Schema_Comments().load(json)
 	db.session.add(Comment)
 	db.session.commit()
 	return "Exposicion creada", 201
@@ -15,7 +15,7 @@ def create_Comments():
 @app.route('/Comments', methods = ["GET"])
 def all_Comments():
 	Comments = Model_Comments.query.all()
-	json = Schema_Users(many = True).dump(Comments)
+	json = Schema_Comments(many = True).dump(Comments)
 	return jsonify(json), 200
 
 @app.route('/Comments/VirtualExposition/<virtual_exposition_id>', methods = ["GET"])
