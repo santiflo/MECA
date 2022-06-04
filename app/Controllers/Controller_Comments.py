@@ -21,7 +21,7 @@ def all_Comments():
 @app.route('/Comments/VirtualExposition/<virtual_exposition_id>', methods = ["GET"])
 def Comments_by_virtual_exposition(virtual_exposition_id):
 	Comments = Model_Comments.query.filter(Model_Comments.virtual_exposition_id == virtual_exposition_id)
-	json = Schema_Multimedia(many = True).dump(Comments)
+	json = Schema_Comments(many = True).dump(Comments)
 	response = jsonify(json)
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response, 200
