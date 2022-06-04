@@ -1,5 +1,5 @@
 from sqlalchemy import Boolean, Column, ForeignKey
-from sqlalchemy import Integer, String, Text
+from sqlalchemy import Integer, Text
 from sqlalchemy.orm import relationship
 from marshmallow import post_load
 from app.app import db, ma
@@ -8,7 +8,7 @@ class Model_Multimedia(db.Model):
 	#Atributos
 	__tablename__ = 'TBL_MULTIMEDIA'
 	id = Column(Integer, primary_key = True)
-	path = Column(String(200), nullable = True, unique = True)
+	path = Column(Text, nullable = True, unique = True)
 	text = Column(Text, nullable = True)
 
 	#Foraneos
