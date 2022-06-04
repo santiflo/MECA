@@ -19,7 +19,7 @@ def all_Comments():
 	return jsonify(json), 200
 
 @app.route('/Comments/VirtualExposition/<virtual_exposition_id>', methods = ["GET"])
-def Comments_by_virtual_exposition():
+def Comments_by_virtual_exposition(virtual_exposition_id):
 	Comments = Model_Comments.query.filter(Model_Comments.virtual_exposition_id == virtual_exposition_id)
 	json = Schema_Multimedia(many = True).dump(Multimedia)
 	response = jsonify(json)
