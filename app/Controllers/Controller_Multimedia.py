@@ -1,6 +1,7 @@
 from app.app import app, db, ma
 from flask import request, jsonify
 from app.Models.Model_Multimedia import Model_Multimedia, Schema_Multimedia
+from app.Models.Model_Types import Model_Types
 
 @app.route('/Multimedia/Create', methods = ["POST"])
 def create_Multimedia():
