@@ -52,7 +52,7 @@ def insert_types():
 	print('Types created')
 
 #db.create_all()
-insert_admin()
+#insert_admin()
 insert_types()
 
 
