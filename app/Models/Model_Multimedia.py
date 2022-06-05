@@ -8,7 +8,7 @@ class Model_Multimedia(db.Model):
 	#Atributos
 	__tablename__ = 'TBL_MULTIMEDIA'
 	id = Column(Integer, primary_key = True)
-	path = Column(Text, nullable = True, unique = True)
+	path = Column(Text, nullable = True)
 	text = Column(Text, nullable = True)
 
 	#Foraneos
