@@ -56,7 +56,7 @@ def insert_types():
 
 #db.create_all()
 #insert_admin()
-insert_types()
+#insert_types()
 
 
 app.run(debug=True , host="0.0.0.0", port = int(port))
