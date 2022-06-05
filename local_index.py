@@ -2,7 +2,7 @@ from app.app import app, db
 from app.Models.Model_Users import Schema_Users
 from app.Models.Model_Types import Schema_Types
 
-def inser():
+def insert():
 	#Usuario administrador
 	admin_data = {
 	'name': 'administrador', 

@@ -1,6 +1,7 @@
 import os
 from app.app import app, db
 from app.Models.Model_Users import Schema_Users
+from app.Models.Model_Types import Schema_Types
 
 # Para Heroku
 port = os.environ["PORT"]
