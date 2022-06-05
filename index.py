@@ -6,7 +6,7 @@ from app.Models.Model_Users import Schema_Users
 port = os.environ["PORT"]
 
 
-def inser():
+def insert():
 	#Usuario administrador
 	admin_data = {
 	'name': 'administrador', 
@@ -47,7 +47,7 @@ def inser():
 	db.session.commit()
 	print('created')
 
-db.create_all()
+#db.create_all()
 insert()
 
 
