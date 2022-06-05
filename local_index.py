@@ -2,8 +2,6 @@ from app.app import app, db
 from app.Models.Model_Users import Schema_Users
 from app.Models.Model_Types import Schema_Types
 
-db.create_all()
-
 def inser():
 	#Usuario administrador
 	admin_data = {
@@ -46,5 +44,6 @@ def inser():
 	print('created')
 
 #insert()
+#db.create_all()
 
 app.run(debug=True , host="0.0.0.0")

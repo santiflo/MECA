@@ -4,7 +4,7 @@ from app.Models.Model_Users import Schema_Users
 
 # Para Heroku
 port = os.environ["PORT"]
-db.create_all()
+
 
 def inser():
 	#Usuario administrador
@@ -48,5 +48,6 @@ def inser():
 	print('created')
 
 #insert()
+#db.create_all()
 
 app.run(debug=True , host="0.0.0.0", port = int(port))
