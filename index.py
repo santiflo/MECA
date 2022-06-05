@@ -7,7 +7,7 @@ from app.Models.Model_Types import Schema_Types
 port = os.environ["PORT"]
 
 
-def insert():
+def insert_admin():
 	#Usuario administrador
 	admin_data = {
 	'name': 'administrador', 
@@ -23,6 +23,9 @@ def insert():
 	User = Schema_Users().load(admin_data)
 	db.session.add(User)
 	db.session.commit()
+	print('Admin create')
+
+def insert_types():
 
 	# Tipos de datos
 	# Subtitle
@@ -46,10 +49,11 @@ def insert():
 	}
 	Type = Schema_Types().load(image_type)
 	db.session.commit()
-	print('created')
+	print('Types created')
 
 #db.create_all()
-insert()
+insert_admin()
+insert_types()
 
 
 app.run(debug=True , host="0.0.0.0", port = int(port))
