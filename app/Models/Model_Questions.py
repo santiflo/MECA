@@ -23,7 +23,6 @@ class Model_Questions(db.Model):
 class Schema_Questions(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Model_Questions
-        include_fk = True
 
     @post_load
     def make_Questions(self, data, **kwargs):
