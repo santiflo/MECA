@@ -3,7 +3,7 @@ from pprint import pprint
 from app.app import app, db, ma
 from app.Models.Model_Questions import Model_Questions, Schema_Questions
 
-@app.route('/Questions/Create' method = ["POST"])
+@app.route('/Questions/Create', method = ["POST"])
 def create_Question():
 	json = request.get_json(force=True)
 	print(json)
