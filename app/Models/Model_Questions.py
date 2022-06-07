@@ -9,7 +9,7 @@ class Model_Questions(db.Model):
 	#Atributos
 	__tablename__ = 'TBL_QUESTIONS'
 	id = Column(Integer, primary_key = True)
-	name = Column(String(100), nullable = False, unique = True)
+	name = Column(String(300), nullable = False, unique = True)
 	description = Column(Text, nullable = False)
 	date = Column(DateTime, nullable = False, default = datetime.utcnow)
 	answers = Column(Text, nullable = True)

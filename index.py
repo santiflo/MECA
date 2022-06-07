@@ -46,7 +46,7 @@ def insert_types():
 	db.session.commit()
 	# Images
 	image_type = {
-	'name' : 'Image',
+	'name' : 'Images',
 	'description' : 'Campo de texto que permite cargar la ruta de una imagen'
 	}
 	Type = Schema_Types().load(image_type)

@@ -29,6 +29,7 @@ def insert_types():
 	'description' : 'Campo de texto que permite crear un subtitulo'
 	}
 	Type = Schema_Types().load(subtitle_type)
+	db.session.add(Type)
 	db.session.commit()
 	# Video
 	video_type = {
@@ -36,17 +37,20 @@ def insert_types():
 	'description' : 'Campo de texto que permite cargar la ruta de un video'
 	}
 	Type = Schema_Types().load(video_type)
+	db.session.add(Type)
 	db.session.commit()
 	# Images
 	image_type = {
-	'name' : 'Image',
+	'name' : 'Images',
 	'description' : 'Campo de texto que permite cargar la ruta de una imagen'
 	}
 	Type = Schema_Types().load(image_type)
+	db.session.add(Type)
 	db.session.commit()
 	print('Types created')
+
 #db.create_all()
 #insert_admin()
-#insert_types
+#insert_types()
 
 app.run(debug=True , host="0.0.0.0")
