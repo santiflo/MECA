@@ -37,7 +37,7 @@ def update_Question():
 		return "La pregunta no existe", 204
 
 @app.route('/Questions/Delete/<Question_id>', methods = ["DELETE"])
-def delete_Comment(Question_id):
+def delete_Question(Question_id):
 	Question = Model_Questions.query.get(Question_id)
 	db.session.delete(Question)
 	db.commit()
