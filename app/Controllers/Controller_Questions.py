@@ -7,7 +7,7 @@ from app.Models.Model_Questions import Model_Questions, Schema_Questions
 def create_Question():
 	json = request.get_json(force=True)
 	print(json)
-	Question = Schema_Questions().load(json)
+	Question = Schema_Questions().load(request.get_json())
 	db.session(Question)
 	db.commit()
 	return "Pregunta creada", 201

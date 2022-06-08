@@ -3,10 +3,6 @@ from app.app import app, db
 from app.Models.Model_Users import Schema_Users
 from app.Models.Model_Types import Schema_Types
 
-# Para Heroku
-port = os.environ["PORT"]
-
-
 def insert_admin():
 	#Usuario administrador
 	admin_data = {
@@ -58,5 +54,7 @@ def insert_types():
 #insert_admin()
 #insert_types()
 
+# Para Heroku
+port = os.environ["PORT"]
 
 app.run(debug=True , host="0.0.0.0", port = int(port))
