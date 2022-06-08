@@ -38,7 +38,7 @@ def update_Question():
 
 @app.route('/Questions/Delete/<Question_id>', methods = ["DELETE"])
 def delete_Question(Question_id):
-	Question = Model_Questions.query.get(Question_id)
+	Question = Model_Questions.query.get(int(Question_id))
 	db.session.delete(Question)
-	db.commit()
+	db.session.commit()
 	return "OK", 200
