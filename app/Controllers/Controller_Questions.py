@@ -33,6 +33,7 @@ def update_Question():
 		if description != '' : question.description = description
 		if answer != '' : question.answer = answer
 		db.session.commit()
+		return "La pregunta ha sido actualizada", 200
 	else:
 		return "La pregunta no existe", 204
 
