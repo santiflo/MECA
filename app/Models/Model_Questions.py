@@ -1,7 +1,6 @@
 from datetime import datetime
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy import Integer, String, Text, DateTime
-from sqlalchemy.orm import relationship
 from marshmallow import post_load
 from app.app import db, ma
 

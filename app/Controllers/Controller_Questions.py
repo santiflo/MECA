@@ -8,8 +8,8 @@ def create_Question():
 	json = request.get_json(force=True)
 	print(json)
 	Question = Schema_Questions().load(request.get_json())
-	db.session(Question)
-	db.commit()
+	db.session.add(Question)
+	db.session.commit()
 	return "Pregunta creada", 201
 
 @app.route('/Questions', methods = ["GET"])
