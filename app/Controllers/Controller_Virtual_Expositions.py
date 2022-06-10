@@ -65,7 +65,7 @@ def update_Exposition():
 @app.route('/VirtualExpositions/Delete/<user_id>/<exposition_id>', methods = ["DELETE"])
 def delete_Exposition(user_id,exposition_id):
 	Exposition = Model_Virtual_Expositions.query.get(exposition_id)
-	if Exposition.user_id == user_id: 
+	if Exposition.user_id == int(user_id): 
 		db.session.delete(Exposition)
 		db.session.commit()
 		return "OK", 200
