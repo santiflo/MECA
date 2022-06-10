@@ -123,7 +123,7 @@ def UpdateAdmin():
 	db.session.commit()
 	return "OK", 200
 
-@app.route('/Users/Update/req_admin' methods = ["PUT"])
+@app.route('/Users/Update/req_admin', methods = ["PUT"])
 def UpdateReq_Admin():
 	json = request.get_json(force=True)
 	print(json)
