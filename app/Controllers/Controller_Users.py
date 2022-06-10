@@ -132,7 +132,7 @@ def UpdateReq_Admin():
 		return "El usuario no existe", 204
 	elif User.req_admin:
 		return "El usuario ya realizo una peticion", 200
-	else
+	else:
 		User.req_admin = True
 		db.session.commit()
 		return "Se envio la peticion para ser admin", 200
