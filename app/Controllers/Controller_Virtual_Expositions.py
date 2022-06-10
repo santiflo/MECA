@@ -62,12 +62,15 @@ def update_Exposition():
 		return "OK", 202 
 	else: return "No es propietario de la exposicion", 204
 
-@app.route('/VirtualExpositions/Delete/<exposition_id>', methods = ["DELETE"])
-def delete_Exposition(exposition_id):
+@app.route('/VirtualExpositions/Delete/<user_id>/<exposition_id>', methods = ["DELETE"])
+def delete_Exposition(user_id,exposition_id):
 	Exposition = Model_Virtual_Expositions.query.get(exposition_id)
-	db.session.delete(Exposition)
-	db.session.commit()
-	return "OK", 200
+	if Exposition.user_id == user_id: 
+		db.session.delete(Exposition)
+		db.session.commit()
+		return "OK", 200
+	else:
+		return "No es propietario de la exposicion", 204
 
 @app.route('/VirtualExpositions/Menu', methods = ["GET"])
 def VirtualExpositionsMenu():
