@@ -22,7 +22,7 @@ class Model_Users(db.Model):
 	describe = Column(Text, nullable = True)
 	verify_email = Column(Boolean, nullable = False, default = False)
 	picture = Column(Text, nullable = True, default = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Stick_Figure.svg/170px-Stick_Figure.svg.png?20070219055013')
-	req_admin = Column(Integer, nullable = False, default = 0)
+	req_admin = Column(Boolean, nullable = False, default = False)
 	#Foraneos
 	#Relaciones
 	virtual_expositions = db.relationship('Model_Virtual_Expositions', backref ='Users', lazy ='dynamic')
