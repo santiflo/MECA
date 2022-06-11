@@ -90,7 +90,8 @@ def adminUsers():
 		Model_Users.id, 
 		Model_Users.name, 
 		Model_Users.email, 
-		Model_Users.admin
+		Model_Users.admin,
+		Model_Users.req_admin
 	).all()
 	json = Schema_Users(many = True).dump(Users)
 	response = jsonify(json)
