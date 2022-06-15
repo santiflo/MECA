@@ -83,25 +83,25 @@ instalar librerias quepuedan interferir con la maquina.
 
 ## Como se encuentra construido el Front-end:
 
-### App.js= opcines con Switch y llamado de ventanas con Route. se export default App;
+- App.js= opcines con Switch y llamado de ventanas con Route. se export default App;
 
-#### index.js= Aqui se llama a la aplicacion la cual seria App.s 
+- - index.js= Aqui se llama a la aplicacion la cual seria App.s 
 
-### Constantes.s = Aqui es donde coloco donde esta ubicada la aplicacion en cuestion del Backup- Aqui esta local y es http://localhost/api-php-react-main por php C:\xampp\htdocs\api-php-react-main
+- Constantes.s = Aqui es donde coloco donde esta ubicada la aplicacion en cuestion del Backup- Aqui esta local y es http://localhost/api-php-react-main por php C:\xampp\htdocs\api-php-react-main
 
-### Nav.js= Aqui es la navegacion manual que puede hacer el usuario. Es como el headers de la pagina. Donde decimos con un NavLink onClick a que pagina queremos ir. por el cual podemos agregar bibliografia, comentarios, soporte y ayuda, etc.  Es como el menu de la pagina. Tambien aqui se pone el orden de como aparece el menu.
+- Nav.js= Aqui es la navegacion manual que puede hacer el usuario. Es como el headers de la pagina. Donde decimos con un NavLink onClick a que pagina queremos ir. por el cual podemos agregar bibliografia, comentarios, soporte y ayuda, etc.  Es como el menu de la pagina. Tambien aqui se pone el orden de como aparece el menu.
 
-### Footer= Es el pie de página, la cual es una sección ubicada debajo del texto principal o cuerpo. Normalmente se utiliza como espacio para el número de página y en este caso informacion de la empresa y de los creadores al igual que de la fundacion.
+- Footer= Es el pie de página, la cual es una sección ubicada debajo del texto principal o cuerpo. Normalmente se utiliza como espacio para el número de página y en este caso informacion de la empresa y de los creadores al igual que de la fundacion.
 
 
 ## Como se encuentra construido el back-end: El back-end esta basado en un patron de diseño MVC, aunque la vista se encuentra separada ya que se tiene un servidor aparte para hacer el consumo de los servicios ofrecidos por el back-end
 
-### Models/: Directorio que contiene los modelos de cada uno de los objetos
-### Controllers/: Contiene la rutas disponibles para ser consumidas por el front-end
-### requirements.txt: Las librerias necesarias para que funcione el proyecto
-### index.py: El archivo principal para configurar el puerto y ejecutar el back-end 
-### confing.py: archivo que debe ser creado para configurar la conexion con la base de datos
-### app.py: El archivo principal del proyecto donde se llaman las librerias utlizadas, se llaman los modelos de cada uno de los objetos y los controladores de 
+- Models/: Directorio que contiene los modelos de cada uno de los objetos
+- Controllers/: Contiene la rutas disponibles para ser consumidas por el front-end
+- requirements.txt: Las librerias necesarias para que funcione el proyecto
+- index.py: El archivo principal para configurar el puerto y ejecutar el back-end 
+- confing.py: archivo que debe ser creado para configurar la conexion con la base de datos
+- app.py: El archivo principal del proyecto donde se llaman las librerias utlizadas, se llaman los modelos de cada uno de los objetos y los controladores de 
 los objetos
 
 
