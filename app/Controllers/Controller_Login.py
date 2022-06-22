@@ -19,8 +19,3 @@ def Login():
 		return response, 202
 	else: return "Bad user or password", 204
 	#return "Bad user or password", 204
-
-@app.route('/', methods = ["GET"])
-def index():
-	return "En la buena manito", 201
-
