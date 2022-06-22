@@ -45,25 +45,25 @@ def allowed_file(filename):
 def upload_file():
 	json = request.get_json(force=True)
 	print(json)
-    # check if the post request has the file part
-    if 'file' not in request.files:
-        flash('No file part')
-        return "No existe ninguna imagen en la peticion", 204
-    file = request.files['file']
-    # If the user does not select a file, the browser submits an
-    # empty file without a filename.
-    if file.filename == '':
-        flash('No selected file')
-        return "El archivo no cuenta con ningun nombre", 204
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
-        Multimedia = Schema_Multimedia().load(json)
-        db.session.add(Multimedia)
+	# check if the post request has the file part
+	if 'file' not in request.files:
+		flash('No file part')
+		return "No existe ninguna imagen en la peticion", 204
+	file = request.files['file']
+	# If the user does not select a file, the browser submits an
+	# empty file without a filename.
+	if file.filename == '':
+		flash('No selected file')
+		return "El archivo no cuenta con ningun nombre", 204
+	if file and allowed_file(file.filename):
+		filename = secure_filename(file.filename)
+		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+		json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
+		Multimedia = Schema_Multimedia().load(json)
+		db.session.add(Multimedia)
 		db.session.commit()
-        return "Proceso exitoso", 201
-    return "Error a la hora de subir la imgen", 204
+		return "Proceso exitoso", 201
+	return "Error a la hora de subir la imgen", 204
 
 @app.route('/Images/<name>')
 def download_file(name):
