@@ -41,7 +41,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg', 'gif'}
 
-@app.route('Multimedia/Upload/Image', methods=['POST'])
+@app.route('/Multimedia/Upload/Image', methods=['POST'])
 def upload_file():
 	json = request.get_json(force=True)
 	print(json)
