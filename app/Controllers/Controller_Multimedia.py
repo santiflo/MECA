@@ -44,8 +44,6 @@ def allowed_file(filename):
 
 @app.route('/Multimedia/Upload/Image', methods=['POST'])
 def upload_file():
-	
-	print(json)
 	# check if the post request has the file part
 	if 'file' not in request.files:
 		flash('No file part')
@@ -59,11 +57,10 @@ def upload_file():
 	if file and allowed_file(file.filename):
 		filename = secure_filename(file.filename)
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-		json = json.load(request.files['data'])
-		json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
-		Multimedia = Schema_Multimedia().load(json)
-		db.session.add(Multimedia)
-		db.session.commit()
+		#json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
+		#Multimedia = Schema_Multimedia().load(json)
+		#db.session.add(Multimedia)
+		#db.session.commit()
 		return "Proceso exitoso", 201
 	return "Error a la hora de subir la imgen", 204
 
