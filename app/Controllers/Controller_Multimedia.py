@@ -66,10 +66,9 @@ def upload_file(virtual_exposition_id, user_id, text):
 			'user_id' : int(user_id)
 			'type_id' : 3
 		}
-		#json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
-		#Multimedia = Schema_Multimedia().load(json)
-		#db.session.add(Multimedia)
-		#db.session.commit()
+		Multimedia = Schema_Multimedia().load(data)
+		db.session.add(Multimedia)
+		db.session.commit()
 		print('Existoso')
 		return "Proceso exitoso", 201
 	print('error general')
