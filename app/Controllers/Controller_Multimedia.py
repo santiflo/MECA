@@ -46,6 +46,7 @@ def allowed_file(filename):
 def upload_file():
 	# check if the post request has the file part
 	if 'file' not in request.files:
+		print('archivo vacio')
 		flash('No file part')
 		return "No existe ninguna imagen en la peticion", 204
 	file = request.files['file']
@@ -53,6 +54,7 @@ def upload_file():
 	# empty file without a filename.
 	if file.filename == '':
 		flash('No selected file')
+		print('Archivo sin nombre')
 		return "El archivo no cuenta con ningun nombre", 204
 	if file and allowed_file(file.filename):
 		filename = secure_filename(file.filename)
@@ -61,7 +63,9 @@ def upload_file():
 		#Multimedia = Schema_Multimedia().load(json)
 		#db.session.add(Multimedia)
 		#db.session.commit()
+		print('Existoso')
 		return "Proceso exitoso", 201
+	print('error general')
 	return "Error a la hora de subir la imgen", 204
 
 @app.route('/Images/<name>')
