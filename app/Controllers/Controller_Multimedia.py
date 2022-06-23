@@ -1,7 +1,7 @@
 import os
 import json
 from app.app import app, db, ma
-from flask import request, jsonify, url_for, send_from_directory
+from flask import request, jsonify, url_for, send_from_directory, flash
 from app.Models.Model_Multimedia import Model_Multimedia, Schema_Multimedia
 from app.Models.Model_Types import Model_Types
 from werkzeug.utils import secure_filename
