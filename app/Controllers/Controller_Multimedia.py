@@ -42,8 +42,8 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg', 'gif'}
 
-@app.route('/Multimedia/Upload/Image', methods=['POST'])
-def upload_file():
+@app.route('/Multimedia/Upload/Image/<virtual_exposition_id>/<user_id>/<text>', methods=['POST'])
+def upload_file(virtual_exposition_id, user_id, text):
 	# check if the post request has the file part
 	if 'file' not in request.files:
 		print('archivo vacio')
@@ -59,6 +59,13 @@ def upload_file():
 	if file and allowed_file(file.filename):
 		filename = secure_filename(file.filename)
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+		data = {
+			'path' : str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename)),
+			'text' : text
+			'virtual_exposition_id' : int(virtual_exposition_id),
+			'user_id' : int(user_id)
+			'type_id' : 3
+		}
 		#json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
 		#Multimedia = Schema_Multimedia().load(json)
 		#db.session.add(Multimedia)
