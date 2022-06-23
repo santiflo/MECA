@@ -1,4 +1,5 @@
 import os
+import json
 from app.app import app, db, ma
 from flask import request, jsonify, url_for, send_from_directory
 from app.Models.Model_Multimedia import Model_Multimedia, Schema_Multimedia
@@ -43,7 +44,7 @@ def allowed_file(filename):
 
 @app.route('/Multimedia/Upload/Image', methods=['POST'])
 def upload_file():
-	json = request.get_json(force=True)
+	
 	print(json)
 	# check if the post request has the file part
 	if 'file' not in request.files:
@@ -58,6 +59,7 @@ def upload_file():
 	if file and allowed_file(file.filename):
 		filename = secure_filename(file.filename)
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+		json = json.load(request.files['data'])
 		json['path'] = str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename))
 		Multimedia = Schema_Multimedia().load(json)
 		db.session.add(Multimedia)
