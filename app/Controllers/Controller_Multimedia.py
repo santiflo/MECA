@@ -61,9 +61,9 @@ def upload_file(virtual_exposition_id, user_id, text):
 		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		data = {
 			'path' : str('https://proyecto-meca-cali.herokuapp.com'+url_for('download_file', name=filename)),
-			'text' : text
+			'text' : text,
 			'virtual_exposition_id' : int(virtual_exposition_id),
-			'user_id' : int(user_id)
+			'user_id' : int(user_id),
 			'type_id' : 3
 		}
 		Multimedia = Schema_Multimedia().load(data)
