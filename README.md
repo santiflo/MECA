@@ -63,7 +63,8 @@ instalar librerias quepuedan interferir con la maquina.
 4) Ubicarse en el repositorio clonado MECA
 3) Ejecutar el comando 'pip install -r requirements.txt'
 4) Crear un archivo llamado config.py con la siguiente informacion en la raiz del proyecto:
-	import os
+	
+ 	import os
 
 	secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
